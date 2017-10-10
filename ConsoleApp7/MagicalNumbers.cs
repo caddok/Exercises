@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,27 +12,26 @@ namespace MagicalNumbers
     {
         static void Main(string[] args)
         {
-            string magicNumber = Console.ReadLine();
-
-            int[] intArray = new int[magicNumber.Length];
-
-            for (int i = 0; i < magicNumber.Length; i++)
+            int magicInput = int.Parse(Console.ReadLine());
+            List<int> magicHappens = new List<int>();
+            while (magicInput>0)
             {
-                intArray[i] = int.Parse(magicNumber);
+                magicHappens.Add(magicInput%10);
+                magicInput /= 10;
             }
-            int result = 0;
-
-            if (intArray[1]/2==0)
+            magicHappens.Reverse();
+            magicHappens.ToArray();
+            double result = 0;
+            if (magicHappens[1]%2!=0)
             {
-                result = intArray[0] + intArray[1] * intArray[2];
+               result = (magicHappens[0] * magicHappens[1]) / magicHappens[2];
             }
             else
             {
-                result = intArray[0] * intArray[1] / intArray[3];
+                result = (magicHappens[0] + magicHappens[1]) * magicHappens[2];
             }
-
-            Console.WriteLine(result);
-
+            Console.WriteLine("{0:F2}",result);
         }
+        
     }
 }

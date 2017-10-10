@@ -19,7 +19,6 @@ namespace BirthdayCakeCandles
             int candlesCount = candlesHight.Count(candle => candle == candlesMaxHeight);
             Console.WriteLine(candlesCount);
 
-            candlesHight.All(candle => candle % 2 == 1)
         }
     }
 }

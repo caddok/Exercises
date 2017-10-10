@@ -1,0 +1,19 @@
+set 2
+print
+front-add 1
+print
+back-add 2
+print
+front-remove
+print
+set 4
+print
+reverse
+print
+front-add 1
+print
+back-add 3
+print
+reverse
+print
+end

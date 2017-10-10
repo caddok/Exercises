@@ -15,25 +15,14 @@ namespace AbsoluteMinDifference
             string[] arr_temp = Console.ReadLine().Split();
             int[] numbers = Array.ConvertAll(arr_temp, Int32.Parse);
             Array.Sort(numbers);
-            int first = 0;
-            int second = 0;
-            for (int i = 0; i < numbers.Length; i++)
+            int minDiff = numbers[1] - numbers[0];
+           
+            for (int i = 2; i != numbers.Length; i++)
             {
-                int number = numbers[i];
-                int number2 = numbers[i + 1];
-
-
-                if (Math.Abs(number - number2)<numbers.Min())
-                {
-                    second = first;
-                    first = number;
-                }
-
+                minDiff = Math.Min(minDiff, numbers[i] - numbers[i - 1]);
             }
-
             
-
-            Console.WriteLine(Math.Abs(first - second));
+            Console.WriteLine(Math.Abs(minDiff));
         }
     }
 }
